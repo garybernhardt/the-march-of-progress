@@ -47,17 +47,7 @@ class WindowIndicatorFinder
 	end
 	
 	def indicators_from_element(element)
-		immediate_indicators = self.immediate_indicators(element)
-		children = element.scrollAreas.get()
-		if children.empty?
-			child_indicators = []
-		else
-			child_indicators = children.map do |child|
-				indicators_from_element(child)
-			end
-		end
-		
-		immediate_indicators + child_indicators
+		immediate_indicators(element) + indicators_from_children(element)
 	end
 	
 	def immediate_indicators(element)
@@ -68,6 +58,17 @@ class WindowIndicatorFinder
 				'window_name' => @window.name,
 				'percent' => percent_for_indicator(indicator)
 			}
+		end
+	end
+	
+	def indicators_from_children(element)
+		children = element.scrollAreas.get()
+		if children.empty?
+			[]
+		else
+			children.map do |child|
+				indicators_from_element(child)
+			end
 		end
 	end
 	
