@@ -12,34 +12,8 @@ class GRBProgressBarFinder
 		events = SBApplication.applicationWithBundleIdentifier('com.apple.systemevents')
 		processes = events.applicationProcesses.get()
 		processes.map do |process|
-			process_name = process.name
-			windows = process.windows.get()
-			windows.map do |window|
-				window_name = window.name
-				indicators = window.progressIndicators.get()
-				indicators.map do |indicator|
-					{
-						'process_name' => process_name,
-						'window_name' => window_name,
-						'percent' => percent_for_indicator(indicator)
-					}
-				end
-			end
+			ProcessIndicatorFinder.new(process).indicators
 		end.flatten
-	end
-	
-	def percent_for_indicator(indicator)
-		attributes = indicator.attributes.get
-		value = get_attribute(attributes, 'AXValue')
-		max = get_attribute(attributes, 'AXMaxValue')
-		return (100.0 * value / max).to_i
-	end
-	
-	def get_attribute(attributes, name)
-		attribute = attributes.select do |attr|
-			attr.name == name
-		end.first
-		attribute.value.get
 	end
 	
 	def crawl_element(element)
@@ -56,5 +30,45 @@ class GRBProgressBarFinder
 
 	def real_methods(obj)
 		return (obj.methods(true, true) - NSObject.methods(true, true)).sort
+	end
+end
+
+
+class ProcessIndicatorFinder
+	def initialize(process)
+		@process = process
+	end
+	
+	def indicators
+		windows = @process.windows.get()
+		windows.map do |window|
+			indicators_from_window(window)
+		end
+	end
+	
+	def indicators_from_window(window)
+		window_name = window.name
+		indicators = window.progressIndicators.get()
+		indicators.map do |indicator|
+			{
+				'process_name' => @process.name,
+				'window_name' => window_name,
+				'percent' => percent_for_indicator(indicator)
+			}
+		end
+	end
+	
+	def percent_for_indicator(indicator)
+		attributes = indicator.attributes.get
+		value = get_attribute(attributes, 'AXValue')
+		max = get_attribute(attributes, 'AXMaxValue')
+		return (100.0 * value / max).to_i
+	end
+	
+	def get_attribute(attributes, name)
+		attribute = attributes.select do |attr|
+			attr.name == name
+		end.first
+		attribute.value.get
 	end
 end
