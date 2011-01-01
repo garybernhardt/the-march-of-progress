@@ -26,10 +26,6 @@ class GRBProgressList
 		self.setValue(values, :forKey => 'values')
 	end
 		
-	def firstIndex
-		raise "BAR"
-	end
-	
 	def values
 		@values
 	end
