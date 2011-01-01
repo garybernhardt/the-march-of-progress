@@ -49,7 +49,6 @@ class WindowIndicatorFinder
 	def indicators_from_element(element)
 		immediate_indicators = self.immediate_indicators(element)
 		children = element.scrollAreas.get()
-		puts "analyzing #{children.inspect}"
 		if children.empty?
 			child_indicators = []
 		else
