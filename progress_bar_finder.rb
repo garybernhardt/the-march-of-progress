@@ -16,18 +16,6 @@ class GRBProgressBarFinder
 		end.flatten
 	end
 	
-	def crawl_element(element)
-		my_indicator_count = element.buttons.count
-		child_indicator_count = 0
-		children = element.UIElements.get()
-		return my_indicator_count if children.empty?
-		children = element.UIElements.get() or []
-		child_indicator_counts = children.map do |element|
-			child_indicator_count += crawl_element(element)
-		end
-		return my_indicator_count + child_indicator_count
-	end
-
 	def real_methods(obj)
 		return (obj.methods(true, true) - NSObject.methods(true, true)).sort
 	end
