@@ -11,24 +11,21 @@ class GRBProgressBarFinder
 	def find
 		events = SBApplication.applicationWithBundleIdentifier('com.apple.systemevents')
 		processes = events.applicationProcesses.get()
-		result = []
-		processes.each do |process|
+		processes.map do |process|
 			process_name = process.name
 			windows = process.windows.get()
-			windows.each do |window|
+			windows.map do |window|
 				window_name = window.name
 				indicators = window.progressIndicators.get()
-				indicators.each do |indicator|
-					result << {
+				indicators.map do |indicator|
+					{
 						'process_name' => process_name,
 						'window_name' => window_name,
 						'percent' => percent_for_indicator(indicator)
 					}
 				end
 			end
-		end
-		puts "update"
-		result
+		end.flatten
 	end
 	
 	def percent_for_indicator(indicator)
