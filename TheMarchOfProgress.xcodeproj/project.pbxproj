@@ -45,6 +45,7 @@
 /* Begin PBXBuildFile section */
 		2053A14412CEA4620033F0A6 /* progress_list.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2053A12412CEA2C80033F0A6 /* progress_list.rb */; };
 		2053A1B612CEA9EF0033F0A6 /* progress_list_view.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2053A11A12CEA19C0033F0A6 /* progress_list_view.rb */; };
+		20E92B3F12CEC2D600D11113 /* dummy_progress_indicator.rb in Resources */ = {isa = PBXBuildFile; fileRef = 20E92B3C12CEC23E00D11113 /* dummy_progress_indicator.rb */; };
 		20FAF3D812CEB44400008118 /* progress_bar_finder.rb in Resources */ = {isa = PBXBuildFile; fileRef = 20FAF3C612CEB3B100008118 /* progress_bar_finder.rb */; };
 		2BFA9DA710CDF852007972A1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BFA9DA510CDF852007972A1 /* MainMenu.xib */; };
 		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
@@ -74,6 +75,7 @@
 		17D55CD81076A1A2008207BD /* run_suite.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = run_suite.rb; sourceTree = "<group>"; };
 		2053A11A12CEA19C0033F0A6 /* progress_list_view.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = progress_list_view.rb; sourceTree = "<group>"; };
 		2053A12412CEA2C80033F0A6 /* progress_list.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = progress_list.rb; sourceTree = "<group>"; };
+		20E92B3C12CEC23E00D11113 /* dummy_progress_indicator.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = dummy_progress_indicator.rb; sourceTree = "<group>"; };
 		20FAF3C612CEB3B100008118 /* progress_bar_finder.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = progress_bar_finder.rb; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -101,6 +103,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				20E92B3C12CEC23E00D11113 /* dummy_progress_indicator.rb */,
 				2053A11A12CEA19C0033F0A6 /* progress_list_view.rb */,
 				2053A12412CEA2C80033F0A6 /* progress_list.rb */,
 				20FAF3C612CEB3B100008118 /* progress_bar_finder.rb */,
@@ -242,6 +245,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */,
 				2053A1B612CEA9EF0033F0A6 /* progress_list_view.rb in Resources */,
+				20E92B3F12CEC2D600D11113 /* dummy_progress_indicator.rb in Resources */,
 				20FAF3D812CEB44400008118 /* progress_bar_finder.rb in Resources */,
 				2053A14412CEA4620033F0A6 /* progress_list.rb in Resources */,
 				2BFA9DA710CDF852007972A1 /* MainMenu.xib in Resources */,

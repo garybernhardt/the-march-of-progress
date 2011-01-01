@@ -11,24 +11,40 @@ class GRBProgressBarFinder
 	def find
 		events = SBApplication.applicationWithBundleIdentifier('com.apple.systemevents')
 		processes = events.applicationProcesses.get()
-		puts "START"
-		indicators_by_process = Hash.new(0)
+		result = []
 		processes.each do |process|
-			#puts (process.methods(true, true) - NSObject.methods(true, true)).sort
-			#puts process.UIElements.get()
-			#puts "#{process.name} #{process.uielements.get.count}"
 			process_name = process.name
 			windows = process.windows.get()
 			windows.each do |window|
-				#puts "COUNT #{process.name} #{window.name} #{crawl_element(window)}"
-				#puts "COUNT #{process.name} #{window.name} #{window.progressIndicators.count}"
-				indicators = window.progressIndicators.count
-				indicators_by_process[process_name] += indicators
+				window_name = window.name
+				indicators = window.progressIndicators.get()
+				indicators.each do |indicator|
+					result << {
+						'process_name' => process_name,
+						'window_name' => window_name,
+						'percent' => percent_for_indicator(indicator)
+					}
+				end
 			end
 		end
-		indicators_by_process
+		puts "update"
+		result
 	end
-
+	
+	def percent_for_indicator(indicator)
+		attributes = indicator.attributes.get
+		value = get_attribute(attributes, 'AXValue')
+		max = get_attribute(attributes, 'AXMaxValue')
+		return (100.0 * value / max).to_i
+	end
+	
+	def get_attribute(attributes, name)
+		attribute = attributes.select do |attr|
+			attr.name == name
+		end.first
+		attribute.value.get
+	end
+	
 	def crawl_element(element)
 		my_indicator_count = element.buttons.count
 		child_indicator_count = 0

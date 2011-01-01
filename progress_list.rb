@@ -22,11 +22,7 @@ class GRBProgressList
 	end
 	
 	def update
-		indicators_by_process = GRBProgressBarFinder.new.find
-		values = []
-		indicators_by_process.each_pair do |process_name, indicators|
-			values << {'name' => process_name, 'percent' => indicators.to_s}
-		end
+		values = GRBProgressBarFinder.new.find
 		self.setValue(values, :forKey => 'values')
 	end
 		

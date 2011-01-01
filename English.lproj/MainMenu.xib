@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="371"/>
+			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -799,7 +799,7 @@
 											<object class="_NSCornerView" key="NSCornerView" id="728942033">
 												<reference key="NSNextResponder" ref="710172265"/>
 												<int key="NSvFlags">-2147483392</int>
-												<string key="NSFrame">{{224, 0}, {16, 17}}</string>
+												<string key="NSFrame">{{504, 0}, {16, 17}}</string>
 												<reference key="NSSuperview" ref="710172265"/>
 											</object>
 											<object class="NSMutableArray" key="NSTableColumns">
@@ -862,14 +862,48 @@
 													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="577356419"/>
 												</object>
+												<object class="NSTableColumn" id="366789265">
+													<double key="NSWidth">195</double>
+													<double key="NSMinWidth">10</double>
+													<double key="NSMaxWidth">3.4028234663852886e+38</double>
+													<object class="NSTableHeaderCell" key="NSHeaderCell">
+														<int key="NSCellFlags">75628096</int>
+														<int key="NSCellFlags2">2048</int>
+														<string key="NSContents">Window Name</string>
+														<reference key="NSSupport" ref="26"/>
+														<object class="NSColor" key="NSBackgroundColor">
+															<int key="NSColorSpace">6</int>
+															<string key="NSCatalogName">System</string>
+															<string key="NSColorName">headerColor</string>
+															<object class="NSColor" key="NSColor">
+																<int key="NSColorSpace">3</int>
+																<bytes key="NSWhite">MQA</bytes>
+															</object>
+														</object>
+														<reference key="NSTextColor" ref="936582910"/>
+													</object>
+													<object class="NSTextFieldCell" key="NSDataCell" id="132484763">
+														<int key="NSCellFlags">337772096</int>
+														<int key="NSCellFlags2">2048</int>
+														<string key="NSContents">Text Cell</string>
+														<reference key="NSSupport" ref="300325777"/>
+														<reference key="NSControlView" ref="577356419"/>
+														<reference key="NSBackgroundColor" ref="1069689283"/>
+														<reference key="NSTextColor" ref="490954573"/>
+													</object>
+													<int key="NSResizingMask">3</int>
+													<bool key="NSIsResizeable">YES</bool>
+													<bool key="NSIsEditable">YES</bool>
+													<reference key="NSTableView" ref="577356419"/>
+												</object>
 												<object class="NSTableColumn" id="519577818">
-													<double key="NSWidth">345</double>
+													<double key="NSWidth">147</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">Progress Bars</string>
+														<string key="NSContents">Percent</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="1010800191"/>
 														<reference key="NSTextColor" ref="936582910"/>
@@ -922,22 +956,21 @@
 								<object class="NSScroller" id="658456470">
 									<reference key="NSNextResponder" ref="710172265"/>
 									<int key="NSvFlags">-2147483392</int>
-									<string key="NSFrame">{{224, 17}, {15, 102}}</string>
+									<string key="NSFrame">{{504, 17}, {15, 270}}</string>
 									<reference key="NSSuperview" ref="710172265"/>
 									<reference key="NSTarget" ref="710172265"/>
 									<string key="NSAction">_doScroller:</string>
-									<double key="NSCurValue">37</double>
-									<double key="NSPercent">0.1947367936372757</double>
+									<double key="NSPercent">0.94736842105263153</double>
 								</object>
 								<object class="NSScroller" id="1006112565">
 									<reference key="NSNextResponder" ref="710172265"/>
 									<int key="NSvFlags">-2147483392</int>
-									<string key="NSFrame">{{1, 119}, {223, 15}}</string>
+									<string key="NSFrame">{{1, 287}, {518, 15}}</string>
 									<reference key="NSSuperview" ref="710172265"/>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="710172265"/>
 									<string key="NSAction">_doScroller:</string>
-									<double key="NSPercent">0.57142859697341919</double>
+									<double key="NSPercent">0.9980732177263969</double>
 								</object>
 								<object class="NSClipView" id="495428557">
 									<reference key="NSNextResponder" ref="710172265"/>
@@ -987,6 +1020,8 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>name</string>
 					<string>percent</string>
+					<string>process_name</string>
+					<string>window_name</string>
 				</object>
 				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
@@ -1001,6 +1036,9 @@
 			</object>
 			<object class="NSUserDefaultsController" id="1011786044">
 				<bool key="NSSharedInstance">YES</bool>
+			</object>
+			<object class="NSCustomObject" id="425521505">
+				<string key="NSClassName">GRBDummyProgressIndicator</string>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -1352,22 +1390,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.name</string>
-						<reference key="source" ref="681227783"/>
-						<reference key="destination" ref="407553819"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="681227783"/>
-							<reference key="NSDestination" ref="407553819"/>
-							<string key="NSLabel">value: arrangedObjects.name</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.name</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">404</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: arrangedObjects.percent</string>
 						<reference key="source" ref="519577818"/>
 						<reference key="destination" ref="407553819"/>
@@ -1381,6 +1403,46 @@
 						</object>
 					</object>
 					<int key="connectionID">405</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.process_name</string>
+						<reference key="source" ref="681227783"/>
+						<reference key="destination" ref="407553819"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="681227783"/>
+							<reference key="NSDestination" ref="407553819"/>
+							<string key="NSLabel">value: arrangedObjects.process_name</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.process_name</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">411</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.window_name</string>
+						<reference key="source" ref="366789265"/>
+						<reference key="destination" ref="407553819"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="366789265"/>
+							<reference key="NSDestination" ref="407553819"/>
+							<string key="NSLabel">value: arrangedObjects.window_name</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.window_name</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">414</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">progressIndicator</string>
+						<reference key="source" ref="425521505"/>
+						<reference key="destination" ref="439447391"/>
+					</object>
+					<int key="connectionID">416</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2041,6 +2103,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="681227783"/>
 							<reference ref="519577818"/>
+							<reference ref="366789265"/>
 						</object>
 						<reference key="parent" ref="710172265"/>
 					</object>
@@ -2086,6 +2149,25 @@
 						<int key="objectID">410</int>
 						<reference key="object" ref="439447391"/>
 						<reference key="parent" ref="439893737"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">412</int>
+						<reference key="object" ref="366789265"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="132484763"/>
+						</object>
+						<reference key="parent" ref="577356419"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">413</int>
+						<reference key="object" ref="132484763"/>
+						<reference key="parent" ref="366789265"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">415</int>
+						<reference key="object" ref="425521505"/>
+						<reference key="parent" ref="0"/>
 					</object>
 				</object>
 			</object>
@@ -2249,6 +2331,7 @@
 					<string>391.IBPluginDependency</string>
 					<string>410.IBPluginDependency</string>
 					<string>410.IBViewBoundsToFrameTransform</string>
+					<string>415.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
 					<string>56.IBPluginDependency</string>
@@ -2431,7 +2514,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAw6kAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAw60AAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2444,8 +2527,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBkAAAwwIAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABBkAAAwggAAA</bytes>
 					</object>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2498,11 +2582,30 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">410</int>
+			<int key="maxID">416</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">GRBDummyProgressIndicator</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">progressIndicator</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">progressIndicator</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">progressIndicator</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">dummy_progress_indicator.rb</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">GRBProgressList</string>
 					<string key="superclassName">NSObject</string>
