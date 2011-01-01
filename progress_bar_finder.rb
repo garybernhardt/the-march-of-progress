@@ -30,17 +30,43 @@ class ProcessIndicatorFinder
 	def indicators
 		windows = @process.windows.get()
 		windows.map do |window|
-			indicators_from_window(window)
+			WindowIndicatorFinder.new(@process, window).indicators
 		end
 	end
+end
+
+
+class WindowIndicatorFinder
+	def initialize(process, window)
+		@process = process
+		@window = window
+	end
 	
-	def indicators_from_window(window)
-		window_name = window.name
-		indicators = window.progressIndicators.get()
+	def indicators
+		indicators_from_element(@window)
+	end
+	
+	def indicators_from_element(element)
+		immediate_indicators = self.immediate_indicators(element)
+		children = element.scrollAreas.get()
+		puts "analyzing #{children.inspect}"
+		if children.empty?
+			child_indicators = []
+		else
+			child_indicators = children.map do |child|
+				indicators_from_element(child)
+			end
+		end
+		
+		immediate_indicators + child_indicators
+	end
+	
+	def immediate_indicators(element)
+		indicators = element.progressIndicators.get()
 		indicators.map do |indicator|
 			{
 				'process_name' => @process.name,
-				'window_name' => window_name,
+				'window_name' => @window.name,
 				'percent' => percent_for_indicator(indicator)
 			}
 		end
